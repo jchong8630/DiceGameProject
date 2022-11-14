@@ -6,6 +6,8 @@ public class DiceGame {
     private int diceRoll;
     private String result;
     private int prev = rollDice();
+    private int d1;
+    private int d2;
 
     public DiceGame(){
         money = 50;
@@ -13,8 +15,41 @@ public class DiceGame {
     }
 
     public int rollDice(){
-        int sum = (int) (Math.random() * 6) + 1 +  (int) (Math.random() * 6) + 1;
+        d1 = (int) (Math.random() * 6) + 1;
+        d2 = (int) (Math.random() * 6) + 1;
+        int sum = d1 + d2;
         return sum;
+    }
+
+    public int getD1(){
+        return d1;
+    }
+
+    public int getD2(){
+        return d2;
+    }
+
+    public String printDice(int dice){
+        if (dice == 1) {
+            return("* * * * *\n*       *\n*   O   *\n*       *\n* * * * *");
+        }
+        else if (dice == 2) {
+            return("* * * * *\n*    O  *\n*       *\n*  O    *\n* * * * *");
+        }
+        else if (dice == 3) {
+            return("* * * * *\n*    O  *\n*   O   *\n*  O    *\n* * * * *");
+        }
+
+        else if (dice == 4) {
+            return("* * * * *\n*  O O  *\n*       *\n*  O O  *\n* * * * *");
+        }
+
+        else if (dice == 5) {
+            return("* * * * *\n*  O O  *\n*   O   *\n*  O O  *\n* * * * *");
+        }
+        else{
+            return("* * * * *\n*  O O  *\n*  O O  *\n*  O O  *\n* * * * *");
+        }
     }
 
     public void turnCounter(){
@@ -84,7 +119,7 @@ public class DiceGame {
     }
 
     public String toString() {
-        String gameMessage = "Dice Roll: " + diceRoll + "\n" + result + "\nMoney: " + String.format("%.02f", money) + "   Turns: " + turns + "\n";
+        String gameMessage = "\nDice Roll: " + diceRoll + "\n" + result + "\n" + printDice(d1) + "\n" + printDice(d2);
         return gameMessage;
     }
 }
