@@ -11,9 +11,9 @@ public class DiceGameRunner {
         String choice;
         double bet;
         System.out.println(PURPLE + "Welcome To Dice Higher Or Lower Game!\nEarn $500 To Win The Game!" + RESET);
+        System.out.println(game.printDice(game.getD1()) + "\n" + game.printDice(game.getD2()));
         while ((game.getMoney() > 0) && (game.getMoney() < 500)){
             System.out.println("Current Roll: " + BLUE + game.getPrev() + RESET + "   Money: " + GREEN + String.format("%.02f",game.getMoney()) + RESET + "   Turns: " + GREEN + game.getTurns() + RESET);
-            System.out.println(game.printDice(game.getD1()) + "\n" + game.printDice(game.getD2()));
             System.out.print("Higher Or Lower: ");
             choice = s.next();
             while (game.choiceChecker(choice) == false){

@@ -68,6 +68,10 @@ public class DiceGame {
     public void decreaseMoney(double bet){
         money -= bet;
     }
+    public void increaseMoney(double bet){
+        money += bet;
+    }
+
     public boolean choiceChecker(String choice){
         choice = choice.toLowerCase();
         if ((choice.contains("higher")) || (choice.contains("lower"))){
@@ -89,11 +93,6 @@ public class DiceGame {
         }
     }
 
-
-    public void increaseMoney(double bet){
-        money += bet;
-    }
-
     public void game(String choice, double bet){
         String correct = "";
         diceRoll = rollDice();
@@ -103,7 +102,7 @@ public class DiceGame {
         else if (prev < diceRoll){
             correct = "higher";
         }
-        else if (prev == diceRoll){
+        else{
             correct = choice;
         }
         if (choice.equals(correct)){
@@ -119,7 +118,7 @@ public class DiceGame {
     }
 
     public String toString() {
-        String gameMessage = "\nDice Roll: " + diceRoll + "\n" + result + "\n" + printDice(d1) + "\n" + printDice(d2);
+        String gameMessage = printDice(d1) + "\n" + printDice(d2) + "\nDice Roll: " + diceRoll + "\n" + result + "\n" ;
         return gameMessage;
     }
 }
