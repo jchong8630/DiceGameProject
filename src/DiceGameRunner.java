@@ -23,7 +23,7 @@ public class DiceGameRunner {
             System.out.print("Bet: ");
             bet = s.nextDouble();
             while (game.betChecker(bet) == false){
-                if (bet != Math.round(bet * 100)/100.00){
+                if ((bet != Math.round(bet * 100)/100.00) || (bet < 0)){
                     System.out.println(RED + "Please Input A Valid Bet!" + RESET);
                 }
                 else{
