@@ -16,13 +16,13 @@ public class DiceGameRunner {
             System.out.println("Current Roll: " + BLUE + game.getPrev() + RESET + "   Money: " + GREEN + String.format("%.02f",game.getMoney()) + RESET + "   Turns: " + GREEN + game.getTurns() + RESET);
             System.out.print("Higher Or Lower: ");
             choice = s.next();
-            while (game.choiceChecker(choice) == false){
+            while (!game.choiceChecker(choice)){
                 System.out.print(RED + "Please Enter \"Higher\" Or \"Lower\": " + RESET);
                 choice = s.next();
             }
             System.out.print("Bet: ");
             bet = s.nextDouble();
-            while (game.betChecker(bet) == false){
+            while (!game.betChecker(bet)){
                 if ((bet != Math.round(bet * 100)/100.00) || (bet < 0)){
                     System.out.println(RED + "Please Input A Valid Bet!" + RESET);
                 }
