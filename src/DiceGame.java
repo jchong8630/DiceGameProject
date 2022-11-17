@@ -164,6 +164,7 @@ public class DiceGame {
      */
     public void game(String choice, double bet){
         String correct = "";
+        choice = choice.toLowerCase();
         diceRoll = rollDice();
         if (prev > diceRoll){
             correct = "lower";
